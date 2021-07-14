@@ -214,7 +214,7 @@ elseif(_ARCH_64 AND CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|amd64|AMD64")
   set(_M_X86_64 1)
   add_definitions(-D_M_X86=1)
   add_definitions(-D_M_X86_64=1)
-  check_and_add_flag(HAVE_SSE2 -msse2)
+  check_and_add_flag(HAVE_SSE4.2 -msse4.2)
 elseif(_ARCH_64 AND CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64|arm64")
   set(_M_ARM_64 1)
   add_definitions(-D_M_ARM_64=1)
@@ -315,8 +315,8 @@ if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 
   # Specify target CPUs.
   if(_ARCH_64 AND CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|amd64|AMD64")
-    check_and_add_flag(HAVE_MSSSE3 -mssse3)
-    check_and_add_flag(HAVE_ARCH_CORE2 -march=core2)
+    check_and_add_flag(HAVE_MSSSE4.2 -mssse4.2)
+    check_and_add_flag(HAVE_ARCH_CORE2 -march=native)
   endif()
   # Linker flags.
   # Drop unreachable code and data.
